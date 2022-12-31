@@ -1,8 +1,10 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { Component, Injectable, Input, NgModule, OnInit } from '@angular/core';
 import { Product } from 'src/product';
 import { ChangeDetectorRef } from '@angular/core';
 import { CartService } from '../cart/cart.service';
-
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',

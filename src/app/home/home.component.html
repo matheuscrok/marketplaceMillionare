@@ -68,6 +68,12 @@
 
   <!-- Products -->
   <div class="row mt-3">
+    <!-- import component product details  -->
+    <app-product-details
+      *ngIf="showDetails"
+      [product]="selectedProduct"
+      (close)="closeDetails()"
+    ></app-product-details>
     <div class="col-md-4" *ngFor="let product of products">
       <div class="card">
         <img
@@ -79,8 +85,12 @@
           <h5 class="card-title text-center">{{ product.name }}</h5>
           <p class="card-text text-center">{{ product.description }}</p>
           <p class="card-text text-center">{{ product.price }}</p>
-          <a (click)="openDetails(product)" class="btn btn-primary">View details</a>
-          <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+          <a (click)="openDetails(product.id)" class="btn btn-primary"
+            >View details</a
+          >
+          <button class="btn btn-primary" (click)="addToCart(product)">
+            Add to cart
+          </button>
           <a
             style="margin-left: 50px; background-color: red"
             class="btn btn-secondary"
@@ -100,10 +110,3 @@
     <a class="text-dark">Market Place</a>
   </div>
 </footer>
-
-<!-- import component product details  -->
-<app-product-details
-  *ngIf="showDetails"
-  [product]="selectedProduct"
-  (close)="closeDetails()"
-></app-product-details>
